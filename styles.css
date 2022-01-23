@@ -1,0 +1,10 @@
+* {
+    font-family: 'Open Sans Condensed', sans-serif;
+    box-sizing: border-box;
+}
+.container {
+
+}
+.stopwatch-field {
+    font-size: 30px;
+}
