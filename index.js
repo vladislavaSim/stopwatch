@@ -3,8 +3,8 @@ let $stopWatchField = document.querySelector('.stopwatch-field');
 let $watch = document.createElement('div');
 $stopWatchField.append($watch)
 
+let [hours, minutes, seconds] = [0, 0, 0];
 function createWatch() {
-    let [hours, minutes, seconds] = [0, 0, 0];
     console.log(seconds)
     let res = [hours, minutes, seconds]
     let interval = setInterval(() => {
@@ -31,3 +31,7 @@ function showWatch() {
 }
 //
 showWatch()
+document.querySelector('.reset').addEventListener('click', _ => {
+    [hours, minutes, seconds] = [0, 0, 0];
+    $watch.innerHTML = hours + ':' + minutes + ':' + seconds;
+})
