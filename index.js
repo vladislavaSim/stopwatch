@@ -25,7 +25,7 @@ function startWatch() {
             seconds = 0
         }
         $watch.innerHTML = hours + ':' + minutes + ':' + seconds;
-    }, 1000)
+    }, 10)
 }
 
 let ticking = true;
@@ -50,8 +50,8 @@ document.querySelector('.reset').addEventListener('click', _ => {
     $startStopBtn.innerHTML = 'start'
     clearInterval(interval)
     ticking = true
-    hours, minutes, seconds = 0;
-    console.log(hours, seconds)
+    hours = minutes = seconds = 0;
+    console.log(hours, minutes, seconds)
     $watch.innerHTML = hours + ':' + minutes + ':' + seconds;
     $resultsHolder.innerHTML = ''
 })
