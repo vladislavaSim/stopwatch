@@ -1,6 +1,7 @@
 let $container = document.querySelector('.container');
 let $stopWatchField = document.querySelector('.stopwatch-field');
 let $watch = document.createElement('div');
+$watch.classList.add('watch')
 let $startStopBtn = document.querySelector('.start-stop')
 let $resultsHolder = document.querySelector('.results-holder')
 $stopWatchField.append($watch)
