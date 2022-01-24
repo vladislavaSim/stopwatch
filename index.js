@@ -1,4 +1,3 @@
-let $container = document.querySelector('.container');
 let $stopWatchField = document.querySelector('.stopwatch-field');
 let $watch = document.createElement('div');
 $watch.classList.add('watch')
@@ -12,7 +11,7 @@ function createWatch() {
 }
 createWatch();
 
-let interval
+let interval;
 function startWatch() {
     interval = setInterval(() => {
         if (seconds < 59) {
@@ -56,6 +55,3 @@ document.querySelector('.reset').addEventListener('click', _ => {
     $watch.innerHTML = hours + ':' + minutes + ':' + seconds;
     $resultsHolder.innerHTML = ''
 })
-
-
-

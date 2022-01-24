@@ -12,7 +12,7 @@ body {
     position: relative;
 }
 .container {
-
+    height: 100%;
 }
 .stopwatch-field {
     font-size: 30px;
@@ -67,8 +67,11 @@ button:hover {
     box-shadow: 1px 1px 15px white;
     font-weight: bolder;
 }
-.results-holder {
-    /*position: absolute;*/
-    /*top: -15%;*/
-    /*left: 15px;*/
+button:active {
+    border: none
+}
+.footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
