@@ -1,37 +1,60 @@
 let $container = document.querySelector('.container');
 let $stopWatchField = document.querySelector('.stopwatch-field');
 let $watch = document.createElement('div');
+let $startStopBtn = document.querySelector('.start-stop')
+let $resultsHolder = document.querySelector('.results-holder')
 $stopWatchField.append($watch)
-
 let [hours, minutes, seconds] = [0, 0, 0];
+
 function createWatch() {
-    console.log(seconds)
-    let res = [hours, minutes, seconds]
-    let interval = setInterval(() => {
-        if(seconds < 59) {
+    $watch.innerHTML = hours + ':' + minutes + ':' + seconds;
+}
+createWatch();
+
+let interval
+function startWatch() {
+    interval = setInterval(() => {
+        if (seconds < 59) {
             seconds++
-        } else if(seconds >= 59 && minutes < 59) {
+        } else if (seconds >= 59 && minutes < 59) {
             minutes++
             seconds = 0
-        } else if(minutes >= 59) {
+        } else if (minutes >= 59) {
             minutes = 0;
             hours++
             seconds = 0
         }
-        console.log(seconds, minutes)
         $watch.innerHTML = hours + ':' + minutes + ':' + seconds;
     }, 1000)
-
-    return res
 }
 
-function showWatch() {
-   let res = createWatch();
+let ticking = true;
 
-}
-//
-showWatch()
-document.querySelector('.reset').addEventListener('click', _ => {
-    [hours, minutes, seconds] = [0, 0, 0];
-    $watch.innerHTML = hours + ':' + minutes + ':' + seconds;
+document.querySelector('.start-stop').addEventListener('click', _ => {
+        if(ticking) {
+            $startStopBtn.innerHTML = 'pause'
+            startWatch()
+            ticking = false
+        } else {
+            let $res = document.createElement('div');
+            $res.innerHTML = hours + ':' + minutes + ':' + seconds;
+            $resultsHolder.append($res)
+            $startStopBtn.innerHTML = 'start'
+            clearInterval(interval)
+            ticking = true
+        }
+        $watch.innerHTML = hours + ':' + minutes + ':' + seconds;
 })
+
+document.querySelector('.reset').addEventListener('click', _ => {
+    $startStopBtn.innerHTML = 'start'
+    clearInterval(interval)
+    ticking = true
+    hours, minutes, seconds = 0;
+    console.log(hours, seconds)
+    $watch.innerHTML = hours + ':' + minutes + ':' + seconds;
+    $resultsHolder.innerHTML = ''
+})
+
+
+
