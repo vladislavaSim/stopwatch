@@ -25,7 +25,7 @@ function startWatch() {
             seconds = 0
         }
         $watch.innerHTML = hours + ':' + minutes + ':' + seconds;
-    }, 10)
+    }, 1000)
 }
 
 let ticking = true;
@@ -51,7 +51,6 @@ document.querySelector('.reset').addEventListener('click', _ => {
     clearInterval(interval)
     ticking = true
     hours = minutes = seconds = 0;
-    console.log(hours, minutes, seconds)
     $watch.innerHTML = hours + ':' + minutes + ':' + seconds;
     $resultsHolder.innerHTML = ''
 })
