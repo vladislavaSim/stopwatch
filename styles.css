@@ -8,7 +8,7 @@ body {
     background: url("./img/sky.jpg");
     margin: 0;
     width: 100vw;
-    padding: 0;
+    padding: 0 15px;
     position: relative;
 }
 .container {
